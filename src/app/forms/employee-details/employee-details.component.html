@@ -1,0 +1,43 @@
+<h1>Employee Details</h1>
+<div class="container-fluid" style="padding-left: 20px; padding-top: 20px;">
+<form [formGroup] = "employeeDetailsForm" (ngSubmit)="submitEmployeeDetailsForm(employeeDetailsForm)">
+    <label [ngClass]="'classLabel'">FirstName</label>&nbsp;
+    <span style="color:red;"><strong>*</strong></span>&nbsp;&nbsp;
+    <input type="text" maxlength="20" formControlName = "FirstName">&nbsp;&nbsp;
+    <span style="color:red;" *ngIf="employeeFirstName.invalid && employeeFirstName.touched">Enter first name</span> <br><br>
+
+    <label [ngClass]="'classLabel'">MiddleName</label>&nbsp;&nbsp;
+    <input type="text" maxlength="20" formControlName = "MiddleName"><br><br>
+
+    <label [ngClass]="'classLabel'">LastName</label>&nbsp;
+    <span style="color:red;"><strong>*</strong></span>&nbsp;&nbsp;
+    <input type="text" maxlength="50" formControlName = "LastName">&nbsp;&nbsp;
+    <span style="color: red;" *ngIf="employeeLastName.invalid && employeeLastName.touched">Enter last name</span> <br><br>
+   
+    <label [ngClass]="'classLabel'">Gender</label>&nbsp;&nbsp;
+    <select formControlName="Gender" (change)="getGender($event)">
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+    </select><br><br>
+    <label [ngClass]="'classLabel'">Date of Birth</label>&nbsp;&nbsp;
+    <input type="date" formControlName="DateofBirth"><br><br>
+    <label [ngClass]="'classLabel'">Department</label>&nbsp;&nbsp;
+    <select formControlName="Department" (change)="getDepartment($event)">
+        <option value="IT">IT</option>
+        <option value="Human Resource">Human Resource</option>
+        <option value="Sales">Sales</option>
+        <option value="Marketing">Marketing</option>
+        <option value="Customer Service">Customer Service</option>
+        <option value="Finance">Finance</option>
+    </select><br><br>
+    <label [ngClass]="'classLabel'">Senior</label>&nbsp;&nbsp;
+    <input type="text" formControlName="Senior"><br><br>
+
+    <button style="border-style:solid; border-color: black; 
+                  border-radius: 5px; padding: 7px; font-family: 'Times New Roman', Times, serif; font-size: medium;" [disabled]="employeeDetailsForm.invalid">
+                  Submit
+    </button><br><br>
+    <!--{{selectedGender}}-->
+    <!--{{employeeDetailsForm.value | json}}-->
+</form>
+</div>
