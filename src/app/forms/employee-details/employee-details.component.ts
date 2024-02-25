@@ -39,5 +39,6 @@ export class EmployeeDetailsComponent {
 
   submitEmployeeDetailsForm(form:any){
     console.log(form);
+    this.employeeDetailsForm.reset();
   }
 }
