@@ -1,1 +1,22 @@
-<p>department works!</p>
+<div class="container">
+    <h1>Departments</h1>
+    <table class="table table-striped"> 
+        <thead>
+            <tr>
+                <th scope="col">Department Id</th>
+                <th scope="col">Department Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let dept of departments">
+              
+                    <td>{{dept.departmentId}}</td>
+                    <td>{{dept.name}}</td>
+                       
+            </tr>
+        </tbody>
+     </table>
+</div>
+ 
+
+
