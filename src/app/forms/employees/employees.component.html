@@ -13,14 +13,17 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Suvidha</td>
-                    <td>Omkar</td>
-                    <td>Nakhawa</td>
-                    <td>Female</td>
-                    <td>15/7/1983</td>
-                    <td>IT</td>
-                    <td>ABC</td>
+                <tr *ngFor="let employee of employeesList">
+                    <!--span *ngFor="let employee of e['nodes']"></span-->
+                        <td>{{employee["FirstName"]}}</td>
+                        <td>{{employee["MiddleName"]}}</td>
+                        <td>{{employee["LastName"]}}</td>
+                        <td>{{employee["Gender"]}}</td>
+                        <td>{{employee["DateOfBirth"]}}</td>
+                        <td>{{employee["Department"]}}</td>
+                        <td>{{employee["Senior"]}}</td>
+                    
+                    
                 </tr>
             </tbody>
         </table>

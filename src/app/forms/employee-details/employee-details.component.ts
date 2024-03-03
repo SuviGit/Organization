@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { EmployeeDataStoreServiceService } from '../../services/employee-data-store-service.service';
 
 @Component({
   selector: 'app-employee-details',
@@ -7,7 +8,10 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrl: './employee-details.component.css'
 })
 export class EmployeeDetailsComponent {
-  selectedGender:String = "";
+ 
+  constructor(private api:EmployeeDataStoreServiceService){}
+
+  selectedGender:string = "";
 
   employeeDetailsForm:FormGroup = new FormGroup({
 
@@ -37,8 +41,16 @@ export class EmployeeDetailsComponent {
     return this.employeeDetailsForm.controls['LastName'];
   }
 
+  get employeeDOB(){
+    return this.employeeDetailsForm.controls['DateofBirth'];
+  }
+
   submitEmployeeDetailsForm(form:any){
-    console.log(form);
+
+    this.api.addEmployeeDetails(this.employeeDetailsForm.value.FirstName, this.employeeDetailsForm.value.MiddleName, this.employeeDetailsForm.value.LastName,
+                                this.employeeDetailsForm.value.Gender, this.employeeDOB.value, this.employeeDetailsForm.value.Department,
+                                this.employeeDetailsForm.value.Senior);
+
     this.employeeDetailsForm.reset();
   }
 }

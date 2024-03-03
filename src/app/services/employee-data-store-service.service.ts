@@ -1,5 +1,15 @@
 import { Injectable } from '@angular/core';
 
+interface Employee{
+  FirstName:string;
+   MiddleName:string;
+   LastName:string;
+   Gender:string;
+   DateOfBirth:string;
+   Department:string;
+   Senior:string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -14,16 +24,8 @@ export class EmployeeDataStoreServiceService {
    Senior:string = "";
 
     empList: Array<any> = [];
-
-  // constructor() { 
-  //   this.FirstName = "";
-  //   this.MiddleName = "";
-  //   this.LastName = "";
-  //   this.Gender = "";
-  //   this.DateOfBirth = "";
-  //   this.Department = "";
-  //   this.Senior = "";
-  // }
+    emparr = [];
+ 
 
   addEmployeeDetails(fName:string, mName:string, lname:string, gender:string, dob:string, dept:string, senior:string){
     this.FirstName = fName;
@@ -34,12 +36,17 @@ export class EmployeeDataStoreServiceService {
     this.Department = dept;
     this.Senior = senior;
 
-    let emparr = [{
-      FName:this.FirstName, MName:this.MiddleName, LName:this.LastName, Gender:this.Gender, DOB:this.DateOfBirth, Dept:this.Department,
-      Senior:this.Senior
-    }];
+    var empVar = <Employee>{};
+    empVar.FirstName = this.FirstName;
+    empVar.MiddleName = this.MiddleName;
+    empVar.LastName = this.LastName;
+    empVar.Gender = this.Gender;
+    empVar.DateOfBirth = this.DateOfBirth;
+    empVar.Department = this.Department;
+    empVar.Senior = this.Senior;
 
-    this.empList.push(emparr);
+    this.empList.push(empVar);
+    console.log(this.empList);
   }
 
   getAllEmployees():any{
