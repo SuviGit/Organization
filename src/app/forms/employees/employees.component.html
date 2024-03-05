@@ -1,5 +1,6 @@
 <div class="container">
     <h1>Employees List</h1>
+    <input class="form-control" type="text" placeholder="Search" [(ngModel)]="searchText">
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -13,17 +14,14 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let employee of employeesList">
-                    <!--span *ngFor="let employee of e['nodes']"></span-->
+                <tr *ngFor="let employee of employeesList | searchPipe:searchText">
                         <td>{{employee["FirstName"]}}</td>
                         <td>{{employee["MiddleName"]}}</td>
                         <td>{{employee["LastName"]}}</td>
                         <td>{{employee["Gender"]}}</td>
                         <td>{{employee["DateOfBirth"]}}</td>
                         <td>{{employee["Department"]}}</td>
-                        <td>{{employee["Senior"]}}</td>
-                    
-                    
+                        <td>{{employee["Senior"]}}</td> 
                 </tr>
             </tbody>
         </table>

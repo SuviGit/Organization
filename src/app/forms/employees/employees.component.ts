@@ -10,6 +10,7 @@ import { EmployeeDataStoreServiceService } from '../../services/employee-data-st
 export class EmployeesComponent {
   
   employeesList = [];
+  searchText = "";
   constructor(private api:EmployeeDataStoreServiceService){}
 
   ngOnInit(){

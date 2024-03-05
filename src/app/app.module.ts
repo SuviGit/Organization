@@ -10,6 +10,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { DepartmentComponent } from './forms/department/department.component';
 import { EmployeesComponent } from './forms/employees/employees.component';
+import { SearchPipePipe } from './search-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { EmployeesComponent } from './forms/employees/employees.component';
     NavbarComponent,
     PagenotfoundComponent,
     DepartmentComponent,
-    EmployeesComponent
+    EmployeesComponent,
+    SearchPipePipe
   ],
   imports: [
     BrowserModule,
